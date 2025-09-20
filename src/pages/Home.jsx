@@ -5,6 +5,7 @@ function Home() {
     <Container className="my-4">
       <Row>
         <Col>
+        <div className="carousel-container">
           <Carousel className="mb-5">
             <Carousel.Item>
               <img
@@ -18,6 +19,7 @@ function Home() {
                 <p>Join our diverse community of learners and educators.</p>
               </Carousel.Caption>
             </Carousel.Item>
+            
             <Carousel.Item>
               <img
                 className="d-block w-100"
@@ -67,6 +69,7 @@ function Home() {
               </Carousel.Caption>
             </Carousel.Item>
           </Carousel>
+        </div>
         </Col>
       </Row>
       

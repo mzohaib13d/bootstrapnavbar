@@ -1,3 +1,4 @@
+/* Header.css */
 .header {
   background: linear-gradient(135deg, #1a2a6c, #b21f1f, #fdbb2d) !important;
   padding: 0;
@@ -30,7 +31,7 @@
 }
 
 .nav-link {
-  color: rgba(255, 255, 255, 0.9);
+  color: #cccccc;
   text-decoration: none;
   font-weight: 500;
   padding: 0.5rem 0.8rem;
@@ -46,7 +47,7 @@
   background-color: rgba(255, 255, 255, 0.1);
 }
 
-/* Sliding underline effect - FIXED */
+/* Sliding underline effect */
 .nav-link::after {
   content: '';
   position: absolute;
@@ -60,7 +61,7 @@
 }
 
 .nav-link:hover::after {
-  width: calc(100% - 1.6rem); /* Matches the horizontal padding */
+  width: calc(100% - 1.6rem);
 }
 
 /* Different colors for different links */
@@ -76,19 +77,29 @@
 .nav-link:nth-child(4):hover::after { background-color: #f783ac; }
 .nav-link:nth-child(5):hover::after { background-color: #ff6b6b; }
 
-/* Custom hamburger to cross animation */
-.navbar-toggler {
+/* Custom hamburger toggler styles */
+.custom-toggler {
   border: none;
   padding: 0;
   width: 30px;
   height: 30px;
   position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.navbar-toggler:focus {
+.custom-toggler:focus {
   box-shadow: none;
+  outline: none;
 }
 
+/* Remove default Bootstrap toggler icon */
+.custom-toggler .navbar-toggler-icon {
+  background-image: none !important;
+}
+
+/* Custom hamburger icon */
 .navbar-toggler-icon {
   background-image: none;
   position: relative;
@@ -118,6 +129,7 @@
   top: 8px;
 }
 
+/* Transform to X when active */
 .navbar-toggler-icon.active {
   background-color: transparent;
 }
@@ -130,4 +142,83 @@
 .navbar-toggler-icon.active::after {
   transform: rotate(-45deg);
   top: 0;
+}
+
+/* Ensure only one icon is visible at a time */
+.navbar-toggler.collapsed .navbar-toggler-icon:not(.active) {
+  display: block;
+}
+
+.navbar-toggler:not(.collapsed) .navbar-toggler-icon.active {
+  display: block;
+}
+
+/* Responsive design for mobile */
+@media (max-width: 768px) {
+  .header-container {
+    flex-direction: column;
+    padding: 1rem;
+  }
+  
+  .logo {
+    margin-bottom: 1rem;
+  }
+  
+  .nav {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.8rem;
+  }
+  
+  .nav-link {
+    padding: 0.4rem 0.6rem;
+    font-size: 0.9rem;
+  }
+  
+  .nav-link:hover::after {
+    width: calc(100% - 1.2rem);
+  }
+}
+
+@media (max-width: 480px) {
+  .header-container {
+    padding: 0.8rem;
+  }
+  
+  .nav {
+    gap: 0.5rem;
+  }
+  
+  .nav-link {
+    padding: 0.3rem 0.5rem;
+    font-size: 0.85rem;
+  }
+  
+  .nav-link:hover::after {
+    width: calc(100% - 1rem);
+  }
+}
+
+@media (max-width: 390px) {
+  .nav {
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  
+  .nav-link {
+    width: 100%;
+    text-align: center;
+    padding: 0.5rem;
+  }
+  
+  .nav-link:hover::after {
+    width: 50%;
+  }
+}
+
+@media (max-width: 375px) {
+  .logo h2 {
+    font-size: 1.5rem;
+  }
 }

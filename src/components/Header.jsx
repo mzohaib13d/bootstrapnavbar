@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Navbar, Nav, Container } from 'react-bootstrap';
 import { Link, useNavigate } from 'react-router-dom';
-import './Header.css';
+import './Header.css'; // Make sure you have this import
 
 function Header() {
   const [expanded, setExpanded] = useState(false);
@@ -19,17 +19,22 @@ function Header() {
       expand="lg" 
       expanded={expanded}
       onToggle={(isExpanded) => setExpanded(isExpanded)}
+      className="custom-navbar" // Added class for custom styling
     >
       <Container>
         <Navbar.Brand as={Link} to="/" onClick={() => setExpanded(false)}>
           Zohaib App
         </Navbar.Brand>
+        
+        {/* Custom toggle button with hamburger/cross animation */}
         <Navbar.Toggle 
           aria-controls="basic-navbar-nav" 
+          className="custom-toggler"
           onClick={() => setExpanded(!expanded)}
         >
           <span className={`navbar-toggler-icon ${expanded ? 'active' : ''}`}></span>
         </Navbar.Toggle>
+        
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="ms-auto">
             <Nav.Link 
